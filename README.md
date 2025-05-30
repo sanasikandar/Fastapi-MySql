@@ -33,24 +33,21 @@ A FastAPI-based RESTful API that supports:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/sanasikandar/Fastapi-BE
+git clone git@github.com:sanasikandar/Fastapi-MySql.git
 cd fastapi-blog-csv-api
 
 2. Set Up Virtual Environment
-
-```bash
+bash
+Copy
+Edit
 python -m venv venv
-source venv/bin/activate  # on Windows: venv\Scripts\activate
-
-
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 3. Install Dependencies
 bash
 Copy
 Edit
 pip install -r requirements.txt
 4. Set Up MySQL Database
-Create a MySQL database and user:
-
 sql
 Copy
 Edit
@@ -59,7 +56,7 @@ CREATE USER 'devuser'@'%' IDENTIFIED BY 'devpass';
 GRANT ALL PRIVILEGES ON tododb.* TO 'devuser'@'%';
 FLUSH PRIVILEGES;
 ⚙️ Configuration
-Update your MySQL connection details in main.py if needed:
+Update MySQL connection details in main.py if needed:
 
 python
 Copy
@@ -74,7 +71,7 @@ bash
 Copy
 Edit
 uvicorn main:app --reload
-Access docs at: http://localhost:8000/docs
+Swagger UI available at: http://localhost:8000/docs
 
 📂 API Endpoints
 🔐 Authentication
@@ -94,9 +91,7 @@ GET /users/{id} – Get a user
 
 📤 Upload CSV to MySQL
 Endpoint: POST /upload-csv
-
 Form Field: file (CSV File)
-
 Auth Required: ✅
 
 bash
@@ -105,7 +100,6 @@ Edit
 curl -u admin:secret -F "file=@mount.csv" http://localhost:8000/upload-csv
 📥 Export MySQL Table to CSV
 Endpoint: GET /export-csv
-
 Auth Required: ✅
 
 bash
@@ -120,5 +114,4 @@ id,Name,Age,Expedition,Nationality,Height
 1,John Doe,32,Everest,USA,180.5
 2,Jane Smith,28,K2,UK,170.2
 🧪 Testing
-Use Swagger UI at http://localhost:8000/docs to interact with all endpoints easily.
-
+Use Swagger UI at: http://localhost:8000/docs
