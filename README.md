@@ -30,27 +30,24 @@ A FastAPI-based RESTful API that supports:
 
 ## 📦 Installation
 
-### 1. Clone the Repository
+### 1. Clone the Repository & Set Up Virtual Environment
 
 ```bash
 git clone git@github.com:sanasikandar/Fastapi-MySql.git
 cd fastapi-blog-csv-api
 
-2. Set Up Virtual Environment
-bash
-Copy
-Edit
+```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+
 3. Install Dependencies
-bash
-Copy
-Edit
+
+```bash
 pip install -r requirements.txt
 4. Set Up MySQL Database
-sql
-Copy
-Edit
+
+```bash
 CREATE DATABASE tododb;
 CREATE USER 'devuser'@'%' IDENTIFIED BY 'devpass';
 GRANT ALL PRIVILEGES ON tododb.* TO 'devuser'@'%';
@@ -58,24 +55,16 @@ FLUSH PRIVILEGES;
 ⚙️ Configuration
 Update MySQL connection details in main.py if needed:
 
-python
-Copy
-Edit
-host='localhost',
-port=3306,
-user='devuser',
-password='devpass',
-database='tododb'
+
 ▶️ Run the App
-bash
-Copy
-Edit
+
+```bash
 uvicorn main:app --reload
 Swagger UI available at: http://localhost:8000/docs
 
 📂 API Endpoints
 🔐 Authentication
-Basic HTTP Auth (username: admin, password: secret) is required for CSV operations.
+Basic HTTP Auth is required for CSV operations.
 
 📄 Blog Posts
 POST /posts/ – Create a post
@@ -94,22 +83,19 @@ Endpoint: POST /upload-csv
 Form Field: file (CSV File)
 Auth Required: ✅
 
-bash
-Copy
-Edit
+
+```bash
 curl -u admin:secret -F "file=@mount.csv" http://localhost:8000/upload-csv
 📥 Export MySQL Table to CSV
 Endpoint: GET /export-csv
 Auth Required: ✅
 
-bash
-Copy
-Edit
+
+```bash
 curl -u admin:secret http://localhost:8000/export-csv -o mountaineers.csv
 📁 Example CSV Format
-csv
-Copy
-Edit
+
+```bash
 id,Name,Age,Expedition,Nationality,Height
 1,John Doe,32,Everest,USA,180.5
 2,Jane Smith,28,K2,UK,170.2
