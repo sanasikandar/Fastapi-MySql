@@ -30,55 +30,57 @@ A FastAPI-based RESTful API that supports:
 
 ## 📦 Installation
 
-### 1. Clone the Repository & Set Up Virtual Environment
+## 🚀 Setup Instructions
+
+### 1. Clone the Repository & Set Up a Virtual Environment
 
 ```bash
-git clone git@github.com:sanasikandar/Fastapi-MySql.git
+git clone https://github.com/sanasikandar/Fastapi-MySql.git
 cd fastapi-blog-csv-api
 
-```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-
-3. Install Dependencies
+### 2. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
-4. Set Up MySQL Database
+
+### 3. Set Up MySQL Database
 
 ```bash
 CREATE DATABASE tododb;
 CREATE USER 'devuser'@'%' IDENTIFIED BY 'devpass';
 GRANT ALL PRIVILEGES ON tododb.* TO 'devuser'@'%';
 FLUSH PRIVILEGES;
-⚙️ Configuration
+
+### ⚙️ Configuration
 Update MySQL connection details in main.py if needed:
 
 
-▶️ Run the App
+### ▶️ Run the App
 
 ```bash
 uvicorn main:app --reload
 Swagger UI available at: http://localhost:8000/docs
 
-📂 API Endpoints
-🔐 Authentication
+### 📂 API Endpoints
+### 🔐 Authentication
 Basic HTTP Auth is required for CSV operations.
 
-📄 Blog Posts
+### 📄 Blog Posts
 POST /posts/ – Create a post
 
 GET /posts/{id} – Get a post by ID
 
 DELETE /posts/{id} – Delete a post
 
-👤 Users
+### 👤 Users
 POST /users/ – Create a user
 
 GET /users/{id} – Get a user
 
-📤 Upload CSV to MySQL
+### 📤 Upload CSV to MySQL
 Endpoint: POST /upload-csv
 Form Field: file (CSV File)
 Auth Required: ✅
